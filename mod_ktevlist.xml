@@ -57,12 +57,12 @@
 			</fieldset>
 		</fields>
 	</config>
-	<!--<updateservers>
+	<updateservers>
 		<server
 			type="extension"
 			priority="2"
 			name="Ktevlist">
-			https://raw.githubusercontent.com/Katan-Technologies/mod_phocadownload/release_update/update.xml
+			https://raw.githubusercontent.com/Katan-Technologies/joomla_ext_updates/main/j4.x/modules/mod_ktevlist/update.xml
 		</server>
-	</updateservers>-->
+	</updateservers>
 </extension>
