@@ -16,23 +16,18 @@ defined('_JEXEC') or die;
 <?php 
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-//get class name then do the following
-/*if (!class_exists('PhocaDownloadFile')) {
-	include("administrator/components/com_phocadownload/libraries/phocadownload/file/file.php");
-	include("administrator/components/com_phocadownload/libraries/phocadownload/path/path.php");
-	include("administrator/components/com_phocadownload/libraries/phocadownload/utils/settings.php");
-}*/
+
 $uri = Uri::getInstance();
 $url = $uri->toString();
 	// Set the new timezone
 
 $tz=date_default_timezone_get();
-echo 'Time Zone: '.$tz;
+//echo 'Time Zone: '.$tz;
 if($tz!=='UTC'){
 	date_default_timezone_set('UTC'); 
 	//assert(date_default_timezone_get() === 'UTC');
 	if (date_default_timezone_get()) {
-		echo 'date_default_timezone_set: ' . date_default_timezone_get() . '<br />';
+		//echo 'date_default_timezone_set: ' . date_default_timezone_get() . '<br />';
 	}
 }
 $currentDateTime = date('Y-m-d H:i:s');
@@ -55,6 +50,7 @@ $currentDate = date('Y-m-d');
 $currentDate = strtotime($currentDate);
 $num=0;
 //var_dump(get_html_translation_table(HTML_ENTITIES, ENT_QUOTES | ENT_HTML5));
+echo '# of events: '.count($ktevlist);
 foreach($ktevlist as $list){
 //if event is not past ...
 	if(gettype($list)=='object'){
