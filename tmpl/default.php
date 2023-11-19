@@ -16,16 +16,15 @@ defined('_JEXEC') or die;
 <?php 
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-
 $uri = Uri::getInstance();
 $url = $uri->toString();
 	// Set the new timezone
 
 $tz=date_default_timezone_get();
-//echo 'Time Zone: '.$tz;
+
 if($tz!=='UTC'){
 	date_default_timezone_set('UTC'); 
-	//assert(date_default_timezone_get() === 'UTC');
+	
 	if (date_default_timezone_get()) {
 		//echo 'date_default_timezone_set: ' . date_default_timezone_get() . '<br />';
 	}
@@ -33,7 +32,7 @@ if($tz!=='UTC'){
 $currentDateTime = date('Y-m-d H:i:s');
 echo '<script src="https://kit.fontawesome.com/292543daea.js" crossorigin="anonymous"></script>';
 echo '<link rel="stylesheet" href="modules/mod_ktevlist/css/style.css">';
-//echo '<style>.ktEvDay{font-size:20px;font-weight:300;}.ktEvMo,.ktEvYr,.ktEvTime,.ktEvLoc{font-size:14px;font-weight:400;}.ktEvTease>div,.ktEvDate,.ktEvTime,.ktEvLoc{display:inline-block;font-family: "Poppins",sans-serif;}.ktEvTitle{font-size:20px; font-weight:600;}.ktEvImg{max-width:33%;}.ktEvImg,.ktEvImg>img{border-top-left-radius: 10px;border-bottom-left-radius: 10px;}.ktEvListItem{margin:.5em;background-color: #f6f6f6;border-radius: 10px;}.ktEvCont{vertical-align:top;max-width:66%;padding-left:.5em;}.ktEvImg>img{object-fit: cover;object-position: 100% 0;min-height: 96.16px;}h4{font-size:16px;margin-bottom:5px !important;}</style>';
+
 $count = 1;
 
 function get_string_between($string, $start, $end){
@@ -49,8 +48,7 @@ $currentDateTime = strtotime($currentDateTime);
 $currentDate = date('Y-m-d');
 $currentDate = strtotime($currentDate);
 $num=0;
-//var_dump(get_html_translation_table(HTML_ENTITIES, ENT_QUOTES | ENT_HTML5));
-echo '# of events: '.count($ktevlist);
+if(count($ktevlist)==0){echo 'There are no upcoming events to display<br/>';}else{
 foreach($ktevlist as $list){
 //if event is not past ...
 	if(gettype($list)=='object'){
@@ -72,30 +70,8 @@ foreach($ktevlist as $list){
 		if($ktEvDateStamp>=$currentDate){
 			$ktEvID = $list->id;
 			echo htmlspecialchars($list->alias, ENT_SUBSTITUTE);
-			//echo 'Type: '.gettype($list->alias);
-			//echo 'test-event-period-5';
-			//$ktEvAlias3 = html_entity_decode($list->alias);
-			//$ktEvAlias2='test-event-period-5';
-			//$ktEvAlias = htmlspecialchars($list->alias, ENT_SUBSTITUTE);
 			$ktEvAlias = $list->alias;
-			// It detect char encoding with current detect_order
-   //echo 'mb_detect_encoding($ktEvAlias)'.mb_detect_encoding($ktEvAlias).'<br/>';
-	//echo 'mb_detect_encoding($list->alias)'.mb_detect_encoding($list->alias).'<br/>';
-   // auto is expanded according to mbstring.language
-   //echo 'mb_detect_encoding($ktEvAlias, "auto")'.mb_detect_encoding($ktEvAlias, "auto").'<br/>';
-   //echo 'mb_detect_encoding($list->alias, "auto")'.mb_detect_encoding($list->alias, "auto").'<br/>';
-
-   // Specify encodings
-   //echo 'mb_detect_encoding($ktEvAlias, "JIS, eucjp-win, sjis-win")'.mb_detect_encoding($ktEvAlias, "JIS, eucjp-win, sjis-win").'<br/>';
-	//echo 'mb_detect_encoding($list->alias, "JIS, eucjp-win, sjis-win")'.mb_detect_encoding($list->alias, "JIS, eucjp-win, sjis-win").'<br/>';
-   // Use array to specify "encodings" parameter
-   /*$array_encoding = [
-      "ASCII",
-      "JIS",
-      "EUC-JP"
-   ];
-   echo 'mb_detect_encoding($ktEvAlias, $array_encoding)'.mb_detect_encoding($ktEvAlias, $array_encoding).'<br/>';
-   echo 'mb_detect_encoding($list->alias, $array_encoding)'.mb_detect_encoding($list->alias, $array_encoding).'<br/>';*/
+        	//need to check if SEF URL's are enabled or not
 			$ktEvURL = Uri::root().'index.php/component/icagenda/'.$ktEvID.'-'.$ktEvAlias;
 			echo '<div class="ktEvListItem"><a href="'.$ktEvURL.'" target="_blank"><div class="ktEvTease">';
 			//get the event image if it exists, if not, then get an image from the category if it exists
@@ -143,7 +119,8 @@ foreach($ktevlist as $list){
 		echo 'There are no upcoming events to display<br/>';
 	}
 }
+//need to check if SEF URL's are enabled
 $compURL = JURI::root().'index.php/events';
 echo '<p class="ktEvLstBtn" style="background-color: orange;border-radius: 10px;padding: 5px 10px 5px 10px;margin-top: 10px;display: inline-flex;float: right;"><a href="'.$compURL.'" target="_blank">View All Events</a></p>';
-
+}//end of if else statement
 ?>
