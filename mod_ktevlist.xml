@@ -53,16 +53,15 @@
 					<option value="9">9</option>
 					<option value="10">10</option>
 				</field>
-				<!--<field name="ktdlimage" type="media" label="Beautiful Image (optional)" description="an image that displays above the list on the front end of the website, to highlight and visually describe the downloads" />-->
 			</fieldset>
 		</fields>
 	</config>
-	<!--<updateservers>
+	<updateservers>
 		<server
 			type="extension"
 			priority="2"
 			name="Ktevlist">
-			https://raw.githubusercontent.com/Katan-Technologies/mod_phocadownload/release_update/update.xml
+			https://raw.githubusercontent.com/Katan-Technologies/joomla_ext_updates/main/j4.x/modules/mod_ktevlist/update.xml
 		</server>
-	</updateservers>-->
+	</updateservers>
 </extension>
