@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.7"
+	client="site"
+	method="upgrade">
+	<name>MOD_KTEVENTSLIST</name>
+	<version>1.0.0.0</version>
+	<creationDate>20-07-2023</creationDate><!-- dd-mm-yyy -->
+	<author>Kathryn Anderson</author>
+	<authorUrl>http://gokatan.com</authorUrl>
+	<authorEmail>katan@gokatan.com</authorEmail>
+	<description>MOD_KTEVENTSLIST_DESC</description>
+	<copyright>Kathryn Anderson (c) 2023. All rights reserved.</copyright>
+	<license>GPL v3</license>
+	<scriptfile>script.php</scriptfile>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_ktevlist.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_ktevlist.sys.ini</language>
+	</languages>
+	<files>
+        	<filename>mod_ktevlist.xml</filename>
+        	<filename module="mod_ktevlist">mod_ktevlist.php</filename>
+        	<filename>index.html</filename>
+        	<filename>helper.php</filename>
+        	<filename>tmpl/default.php</filename>
+        	<filename>tmpl/index.html</filename>
+		<filename>css/style.css</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field 
+				name="title" 
+				type="sql"
+				default="0" 
+				label="Select a category" 
+				query="SELECT id AS value, title FROM #__icagenda_category" 
+				>
+				<!--<option value="">Select One</option>-->
+				<option value="0">All</option>
+				</field>
+				<field name="maxentries" type="list" default="" label="Next Events: " description="">
+					<option value="0">All</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</field>
+				<!--<field name="ktdlimage" type="media" label="Beautiful Image (optional)" description="an image that displays above the list on the front end of the website, to highlight and visually describe the downloads" />-->
+			</fieldset>
+		</fields>
+	</config>
+	<!--<updateservers>
+		<server
+			type="extension"
+			priority="2"
+			name="Ktevlist">
+			https://raw.githubusercontent.com/Katan-Technologies/mod_phocadownload/release_update/update.xml
+		</server>
+	</updateservers>-->
+</extension>

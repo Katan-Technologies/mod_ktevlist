@@ -1,0 +1,59 @@
+.ktEvDay{
+	font-size:20px;
+	font-weight:300;
+}
+.ktEvMo,.ktEvYr,.ktEvTime,.ktEvLoc{
+	font-size:14px;
+	font-weight:400;
+}
+.ktEvTease>div,.ktEvDate,.ktEvTime,.ktEvLoc{
+	display:inline-block;
+	font-family: "Poppins",sans-serif;
+}
+.ktEvTitle{
+	font-size:20px; 
+	font-weight:600;
+}
+.ktEvImg{
+	max-width:33%;
+}
+.ktEvImg,.ktEvImg>img{
+	/*border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;*/
+	border-radius:10px;
+}
+.ktEvListItem{
+	margin:.5em;
+	background-color: #f6f6f6;
+	border-radius: 10px;
+}
+.ktEvCont{
+	vertical-align:top;
+	max-width:66%;
+	padding-left:.5em;
+}
+.ktEvImg>img{
+	object-fit: cover;
+	object-position: 100% 0;
+	min-height: 96.16px;
+}
+.ktEvTitle h4{
+	font-size:16px !important;
+	margin-bottom:5px !important;
+	margin-left:0 !important;
+}
+.ktEvCatTitle span{
+	font-size: small;
+	font-style: italic;
+}
+.ktEvLstBtn{
+	background-color: orange;
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
+	margin-top: 10px !important;
+	display: inline-flex;
+	float: right;
+	font-weight:bold;
+	font-size:smaller;
+}
+.ktEvLstBtn a{color:white !important;}
